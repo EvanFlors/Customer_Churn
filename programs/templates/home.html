@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-submit {
+            width: 100%;
+        }
+        .output-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        .output-box input {
+            font-size: 1rem;
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="heading">Churn Prediction Form</h2>
+    <form action="http://localhost:5000/" method="POST">
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Grid form using the Bootstrap grid system -->
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query1">SeniorCitizen:</label>
+                            <input type="number" class="form-control" id="query1" name="query1" value="{{query1}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query2">MonthlyCharges:</label>
+                            <input type="number" step="0.01" class="form-control" id="query2" name="query2" value="{{query2}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query3">TotalCharges:</label>
+                            <input type="number" step="0.01" class="form-control" id="query3" name="query3" value="{{query3}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query4">Gender:</label>
+                            <input type="text" class="form-control" id="query4" name="query4" value="{{query4}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query5">Partner:</label>
+                            <input type="text" class="form-control" id="query5" name="query5" value="{{query5}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query6">Dependents:</label>
+                            <input type="text" class="form-control" id="query6" name="query6" value="{{query6}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query7">PhoneService:</label>
+                            <input type="text" class="form-control" id="query7" name="query7" value="{{query7}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query8">MultipleLines:</label>
+                            <input type="text" class="form-control" id="query8" name="query8" value="{{query8}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query9">InternetService:</label>
+                            <input type="text" class="form-control" id="query9" name="query9" value="{{query9}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query10">OnlineSecurity:</label>
+                            <input type="text" class="form-control" id="query10" name="query10" value="{{query10}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query11">OnlineBackup:</label>
+                            <input type="text" class="form-control" id="query11" name="query11" value="{{query11}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query12">DeviceProtection:</label>
+                            <input type="text" class="form-control" id="query12" name="query12" value="{{query12}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query13">TechSupport:</label>
+                            <input type="text" class="form-control" id="query13" name="query13" value="{{query13}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query14">StreamingTV:</label>
+                            <input type="text" class="form-control" id="query14" name="query14" value="{{query14}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query15">StreamingMovies:</label>
+                            <input type="text" class="form-control" id="query15" name="query15" value="{{query15}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query16">Contract:</label>
+                            <input type="text" class="form-control" id="query16" name="query16" value="{{query16}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query17">PaperlessBilling:</label>
+                            <input type="text" class="form-control" id="query17" name="query17" value="{{query17}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query18">PaymentMethod:</label>
+                            <input type="text" class="form-control" id="query18" name="query18" value="{{query18}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="query19">Tenure:</label>
+                            <input type="number" class="form-control" id="query19" name="query19" value="{{query19}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-md-9 output-box">
+            <h4>Prediction Output</h4>
+            <input type="text" class="form-control" id="output1" value="{{output1}}" readonly>
+            <input type="text" class="form-control" id="output2" value="{{output2}}" readonly>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
